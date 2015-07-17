@@ -8,7 +8,7 @@ read -p "Please enter data..." raw
 ##statements
 #done
 cat list.dat &> /dev/null
-if [[ "$?" == "1" ]]; then
+if [ "$?" == "1" ]; then
 	echo "$raw" > list.dat
 else
 echo $raw > .temp1
@@ -25,9 +25,10 @@ read -p "Please enter instruction..." ins
 if [[ "$ins" == "1" ]]; then
 	cat list.dat
 else
-	read -p "please enter key word" key
-	cat list.dat | grep $key
-	if [[ "$?"  ]]; then
+	read -p "please enter key word    " key
+	echo
+	cat list.dat | grep  --color=auto --exclude-dir={.bzr,.cvs,.git,.hg,.svn} $key
+	if [ "$?" -eq "1" ]; then
 		echo "Did not find the key word"
 		echo "Show all the list"
 		echo "************************"
