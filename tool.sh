@@ -11,10 +11,10 @@ cat list.dat &> /dev/null
 if [ "$?" == "1" ]; then
 	echo "$raw" > list.dat
 else
-echo $raw > .temp1
-cat  .temp1 list.dat > .temp2
-cat .temp2 | sort -n > list.dat
-rm .temp* > /dev/null
+	echo $raw > .temp1
+	cat  .temp1 list.dat > .temp2
+	cat .temp2 | sort -n > list.dat
+	rm .temp* > /dev/null
 fi
 }
 
@@ -23,7 +23,9 @@ echo "1 for show all"
 echo "2 for query"
 read -p "Please enter instruction..." ins
 if [[ "$ins" == "1" ]]; then
+	echo "************************"
 	cat list.dat
+	echo "************************"
 else
 	read -p "please enter key word    " key
 	echo
@@ -47,7 +49,7 @@ if [[ "$menu" == "1" ]]; then
 	read -p "Press any button to continue enter" -t 1 control 
 	while [ "$?" == "0" ]; do
 		add
-	read -p "Press any button to continue enter" -t 1 control 
+		read -p "Press any button to continue enter" -t 1 control 
 	done
 elif [[ "$menu" -eq "2" ]]; then
 	browse
