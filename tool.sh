@@ -26,6 +26,8 @@ if [[ "$ins" == "1" ]]; then
 	echo "************************"
 	cat list.dat
 	echo "************************"
+	echo -n "total problem : "
+	cat list.dat | wc -l
 else
 	read -p "please enter key word    " key
 	echo
