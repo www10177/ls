@@ -48,10 +48,10 @@ echo "3 for exit"
 read -p "Please enter instruction..." menu
 if [[ "$menu" == "1" ]]; then
 	add
-	read -p "Press any button to continue enter" -t 1 control 
+	read -p "Press any button to continue enter " -t 1 control 
 	while [ "$?" == "0" ]; do
 		add
-		read -p "Press any button to continue enter" -t 1 control 
+		read -p "Press any button to continue enter " -t 1 control 
 	done
 elif [[ "$menu" -eq "2" ]]; then
 	browse
