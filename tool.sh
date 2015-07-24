@@ -2,11 +2,6 @@
 
 function add(){
 read -p "Please enter data..." raw 
-#IFS = "-"
-#export IFS
-#for $data do 
-##statements
-#done
 cat list.dat &> /dev/null
 if [ "$?" == "1" ]; then
 	echo "$raw" > list.dat
@@ -15,6 +10,15 @@ else
 	cat  .temp1 list.dat > .temp2
 	cat .temp2 | sort -n > list.dat
 	rm .temp* > /dev/null
+	raw=${raw%% - *}
+	if [  "$?" == "1" ]; then
+		echo "create folder ERROR"
+	else 
+		mkdir $raw
+		cd $raw
+		touch data.in data.out
+		vim "$raw.c"
+	fi
 fi
 }
 
@@ -48,11 +52,6 @@ echo "3 for exit"
 read -p "Please enter instruction..." menu
 if [[ "$menu" == "1" ]]; then
 	add
-	read -p "Press any button to continue enter " -t 1 control 
-	while [ "$?" == "0" ]; do
-		add
-		read -p "Press any button to continue enter " -t 1 control 
-	done
 elif [[ "$menu" -eq "2" ]]; then
 	browse
 elif [[ "$menu" -eq "3" ]]; then
