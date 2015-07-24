@@ -1,14 +1,17 @@
 #!/bin/bash
 
 read -p "Enter Serial "  serial
-if [ -e  "$serial" ]; then
-	mv $serial ./Done
-fi
-if [ $? ]; then
-	if [ !  -e "./Done/$serial"  ]; then
+if [ -e  "~/uva/$serial" ]; then
+	mv "~/uva/$serial" ./Done
+else
+	if [ -d "~/uva/Done/$serial" ]; then
 		echo "File not exist"
 		exit 1
+	else 
+		echo "already in done"
+		sleep 1
 	fi
+
 fi
 cd ~/uva
 git add .
