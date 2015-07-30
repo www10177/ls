@@ -17,7 +17,7 @@ else
 		mkdir $raw
 		cd $raw
 		touch data.in data.out
-		vim "$raw.c"
+		touch "$raw.c"
 	fi
 fi
 }
