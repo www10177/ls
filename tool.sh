@@ -18,6 +18,7 @@ else
 		cd $raw
 		touch data.in data.out
 		touch "$raw.c"
+		cd $raw
 	fi
 fi
 }
