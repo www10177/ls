@@ -1,42 +1,33 @@
 #include<stdio.h>
-
-long int calculate(int in,long int count){
-	if(in==1){
-		return count;
-	}
-	else{
-		if(in%2){
-			in=3*in+1;
+int calculate(int in){
+	int count = 1;
+	while( in!=1 ){
+		if( in&1 ){
+			in = 3 * in + 1;
 			count++;
 		}
 		else{
-			in=in/2;
+			in=in >> 1;
 			count++;
 		}
-		return calculate(in,count);
 	}
+	return count;
 }
 int main(){
-	int a,b;
-	int max=0;
+	int a,b,c;
+	int value=0;
 	int cache;
-	long int count=1;
 	while((scanf("%d %d",&a,&b))!=EOF){
 		printf("%d %d ",a,b);
-		int i;
-		if(a>b){
-			i=a;
-			a=b;
-			b=i;
+		if ( a > b ) {
+			c = a; a = b; b = c;	
 		}
-		for(a;a<=b;a++){
-			cache=calculate(a,count);
-			if (max<cache)
-				max=cache;
+		for (; a <=b  ; a++) {
+			cache=calculate(a);
+			value = (cache > value ? cache : value);
 		}
-		printf("%d\n",max);
-		max=0;
-
+		printf("%d\n",value);
+		value = 0;
 	}
 	return 0;
 }
