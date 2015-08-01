@@ -18,7 +18,7 @@ else
 		cd $raw
 		touch data.in data.out
 		touch "$raw.c"
-		cd "/home/risr/uva/$raw"
+		cd "/home/rist/uva/$raw"
 	fi
 fi
 }
