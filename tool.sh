@@ -27,9 +27,7 @@ echo "1 for show all"
 echo "2 for query"
 read -p "Please enter instruction..." ins
 if [[ "$ins" == "1" ]]; then
-	echo "************************"
-	cat list.dat
-	echo "************************"
+	less list.dat
 	echo -n "total problem : "
 	cat list.dat | wc -l
 else
@@ -39,9 +37,7 @@ else
 	if [ "$?" -eq "1" ]; then
 		echo "Did not find the key word"
 		echo "Show all the list"
-		echo "************************"
-		cat list.dat
-		echo "************************"
+		less list.dat
 	fi
 fi
 }
