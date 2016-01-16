@@ -36,8 +36,8 @@ else
 	cat list.dat | grep  --color=auto --exclude-dir={.bzr,.cvs,.git,.hg,.svn} $key
 	if [ "$?" -eq "1" ]; then
 		echo "Did not find the key word"
-		echo "Show all the list"
-		less list.dat
+		#echo "Show all the list"
+		#cat list.dat
 	fi
 fi
 }
