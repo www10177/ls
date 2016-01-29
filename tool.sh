@@ -17,7 +17,7 @@ else
 		mkdir $raw
 		cd $raw
 		touch data.in data.out
-		touch "$raw.c"
+		touch "$raw.cpp"
 	fi
 fi
 }
