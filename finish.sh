@@ -8,6 +8,7 @@ git status
 read -p "Y/N" YN
 if [  "$YN" == "y" ]; then
 	git commit -am "$serial"
+	git push
 	git status
 else
 	echo "Did not commit"
